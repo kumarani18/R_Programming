@@ -15,14 +15,14 @@ pollutantmean <- function(directory, pollutant, id = 1:332) {
   
   myfiles <- (Sys.glob("specdata/*.csv"))[id];
   myfiles1 <- list.files("specdata");
-  combined_data <- c()
+  combined_data <- c();
   
   for (file in myfiles) {
     file_data <- read.csv(file, sep = ",");
     pollutant_data <- file_data[,pollutant];
-    pollutant_data <- pollutant_data[!is.na(pollutant_data)]
-    combined_data <- c(combined_data, pollutant_data)
+    pollutant_data <- pollutant_data[!is.na(pollutant_data)];
+    combined_data <- c(combined_data, pollutant_data);
   }
   
-  return(mean(combined_data));
-}
+    return(mean(combined_data));
+  }
